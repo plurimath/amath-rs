@@ -9,7 +9,7 @@ readme = "README.md"
 include = ["src/**", "include/**", "tests/**", "examples/**", "artifacts/**", "README.md", "LICENSE", "UPSTREAM.json", "Cargo.toml"]
 
 [dependencies]
-parsanol = "=0.20.7"
+parsanol = { git = "https://github.com/parsanol/parsanol-rs", rev = "4b8351aae8e403e73aaa306111250ebd56c12e0f" }
 serde_json = { version = "=1.0.140", features = ["arbitrary_precision", "preserve_order"] }
 
 [features]

@@ -43,5 +43,14 @@
   "catalog": {
     "source": "plurimath/amath data/asciimath-symbols.json and generated TS catalog",
     "sha256": "b20361256d9ebdc32487709fe9c0184f9c7617e86540ba6914c4df6ad528db2a"
+  },
+  "compatibility_runtime": {
+    "repository": "https://github.com/parsanol/parsanol-rs",
+    "commit": "4b8351aae8e403e73aaa306111250ebd56c12e0f",
+    "version": "0.20.12",
+    "release_status": "unreleased source candidate",
+    "strict_api": "parse/parse_with_decimal and model JSON unchanged",
+    "legacy_api": "parse_legacy/parse_legacy_with_decimal",
+    "policy": "strict acceptance/tree; causal reparse only on rejection with native fallback"
   }
 }

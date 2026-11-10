@@ -60,3 +60,6 @@ jobs:
         run: cargo +${{ matrix.rust }} build --locked --all-features --lib
       - name: Exercise the native ABI and result ownership
         run: python .github/scripts/check-native-abi.py amath
+
+      - name: Replay the complete frozen legacy raw corpus
+        run: cargo +${{ matrix.rust }} test --locked --all-features --test full_legacy_corpus -- --ignored

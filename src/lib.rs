@@ -105,6 +105,37 @@ impl Parser {
         self.parse_with_decimal(input, ".")
     }
     pub fn parse_with_decimal(&self, input: &str, decimal: &str) -> Result<Parsed, Error> {
+        self.parse_with_policy(
+            input,
+            decimal,
+            parsanol::portable::parser::ParserCompatibility::Strict,
+        )
+    }
+    /// Legacy stage policy, preserving the producer's diagnostic boundary.
+    /// Error offsets refer to preprocessed input, like the raw Ruby producer.
+    pub fn parse_legacy(&self, input: &str) -> Result<Parsed, Error> {
+        self.parse_legacy_with_decimal(input, ".")
+    }
+    pub fn parse_legacy_with_decimal(&self, input: &str, decimal: &str) -> Result<Parsed, Error> {
+        let native = self.parse_with_decimal(input, decimal);
+        if matches!(&native, Err(Error::Runtime(PargError::ParseWire { .. }))) {
+            let causal = self.parse_with_policy(
+                input,
+                decimal,
+                parsanol::portable::parser::ParserCompatibility::Parslet,
+            );
+            if matches!(&causal, Err(Error::Runtime(PargError::ParseWire { .. }))) {
+                return causal;
+            }
+        }
+        native
+    }
+    fn parse_with_policy(
+        &self,
+        input: &str,
+        decimal: &str,
+        policy: parsanol::portable::parser::ParserCompatibility,
+    ) -> Result<Parsed, Error> {
         let lang = languages::stage_language(LANGUAGE);
         let entry = lang
             .decimal_entries
@@ -116,7 +147,9 @@ impl Parser {
             Some(preprocess) => preprocess(input).ok_or(Error::NoFormula)?,
             None => input.to_string(),
         };
-        let shape = self.artifact.parse_shape(entry, &parsed_input)?;
+        let shape = self
+            .artifact
+            .parse_shape_with_compatibility(entry, &parsed_input, policy)?;
         // Apply authoritative bindings even for the asciimath root mapping.
         let bound = self.bindings.apply(&self.artifact, entry, &shape)?;
         let raw_source = if lang.bindings { &bound } else { &shape };
@@ -136,4 +169,9 @@ impl Parser {
 }
 pub fn parse(input: &str) -> Result<Parsed, Error> {
     Parser::new()?.parse(input)
+}
+
+/// Parse using the stage producer's explicit legacy raw policy.
+pub fn parse_legacy(input: &str) -> Result<Parsed, Error> {
+    Parser::new()?.parse_legacy(input)
 }

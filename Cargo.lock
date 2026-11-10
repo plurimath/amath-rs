@@ -31,16 +31,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "683d7910e743518b0e34f1186f92494becacb047c7b6bf616c96772180fef923"
 
 [[package]]
-name = "plurimath-amath"
-version = "0.1.0"
-dependencies = [
- "lutaml-rs",
- "parsanol",
- "serde",
- "serde_json",
-]
-
-[[package]]
 name = "autocfg"
 version = "1.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -260,9 +250,8 @@ checksum = "9f7c3e4beb33f85d45ae3e3a1792185706c8e16d043238c593331cc7cd313b50"
 
 [[package]]
 name = "parsanol"
-version = "0.20.7"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "14c1665c734f9fa9ecb304acb8591d1867ed021c37f4f0de2e58f825d26b1e01"
+version = "0.20.12"
+source = "git+https://github.com/parsanol/parsanol-rs?rev=4b8351aae8e403e73aaa306111250ebd56c12e0f#4b8351aae8e403e73aaa306111250ebd56c12e0f"
 dependencies = [
  "ahash",
  "getrandom 0.3.4",
@@ -280,12 +269,21 @@ dependencies = [
 [[package]]
 name = "parsanol-derive"
 version = "0.20.12"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "904b0d4f0cd88c7d521bef86c6be25d02374120eb9aaf8249266b56512a4a302"
+source = "git+https://github.com/parsanol/parsanol-rs?rev=4b8351aae8e403e73aaa306111250ebd56c12e0f#4b8351aae8e403e73aaa306111250ebd56c12e0f"
 dependencies = [
  "proc-macro2",
  "quote",
  "syn 3.0.10",
+]
+
+[[package]]
+name = "plurimath-amath"
+version = "0.1.0"
+dependencies = [
+ "lutaml-rs",
+ "parsanol",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]
