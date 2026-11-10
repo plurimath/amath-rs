@@ -63,3 +63,6 @@ jobs:
 
       - name: Replay the complete frozen legacy raw corpus
         run: cargo +${{ matrix.rust }} test --locked --all-features --test full_legacy_corpus -- --ignored
+
+      - name: Check native depth guards and reuse on default caller stacks
+        run: python .github/scripts/check-native-depth.py amath
