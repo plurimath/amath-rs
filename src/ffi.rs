@@ -39,6 +39,18 @@ fn response(input: &str, decimal: &str) -> Value {
             }
         },
         Err(e) => {
+            let resource = match &e {
+                crate::typed::ModelError::Parse(crate::Error::Runtime(
+                    parsanol::parg::PargError::RecursionLimitExceeded { depth, max_depth },
+                )) => Some(("recursion_limit", *depth, *max_depth)),
+                crate::typed::ModelError::Parse(crate::Error::Runtime(
+                    parsanol::parg::PargError::CallDepthLimitExceeded { depth, max_depth },
+                )) => Some(("call_depth_limit", *depth, *max_depth)),
+                _ => None,
+            };
+            if let Some((category, depth, max_depth)) = resource {
+                return json!({"abi_version":1,"ok":false,"error":{"category":category,"depth":depth,"max_depth":max_depth,"message":e.to_string(),"byte_offset":null,"offset_source":"preprocessed_input"}});
+            }
             let (category, offset) = match &e {
                 crate::typed::ModelError::Parse(crate::Error::UnsupportedDecimal(_)) => {
                     ("invalid_argument", None)

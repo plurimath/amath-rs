@@ -46,11 +46,14 @@
   },
   "compatibility_runtime": {
     "repository": "https://github.com/parsanol/parsanol-rs",
-    "commit": "4b8351aae8e403e73aaa306111250ebd56c12e0f",
+    "commit": "20d5e6cebcade3cf2111a00a7ef3f5b69d673481",
     "version": "0.20.12",
     "release_status": "unreleased source candidate",
     "strict_api": "parse/parse_with_decimal and model JSON unchanged",
     "legacy_api": "parse_legacy/parse_legacy_with_decimal",
-    "policy": "strict acceptance/tree; causal reparse only on rejection with native fallback"
+    "policy": "strict acceptance/tree; causal reparse only on rejection with native fallback",
+    "native_stack_bytes": 67108864,
+    "rule_reference_budget": 1000,
+    "native_vm_call_budget": 0
   }
 }
