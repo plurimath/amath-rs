@@ -44,3 +44,14 @@ JSON APIs preserve strict native behavior. Legacy errors still refer to
 preprocessed input, and slices reference `Parsed::parsed_input`.
 Amath preserves strict successful trees and reparses rejected input for causal
 failure positions; unexpected reparse acceptance keeps the native failure.
+
+
+Raw corpus qualification uses two source profiles. The archived Plurimath
+0.11.12 generation3 fixture asserts all160 raw tree values and array order;
+its generator deliberately sorts Hash keys for stable files. A separate
+versioned Amath `Parser.raw` producer fixture asserts current member order,
+verified against both native and Ruby engines for the same160 inputs.
+The original fixture and13 source-declared exclusions are retained verbatim.
+See `tests/fixtures/raw-profiles-provenance-v1.json` for payload, generator,
+artifact and producer pins. These raw profiles do not establish public model
+or writer equivalence; those remain separate consumer requirements.

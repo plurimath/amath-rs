@@ -1,0 +1,1271 @@
+{
+  "classification": "Hash key order only; all160 values identical",
+  "source_generator_explicitly_sorts_hash_keys": true,
+  "count": 77,
+  "families": [
+    {
+      "path": "$.expr.color.intermediate_exp.rgb_color.expr",
+      "count": 2,
+      "representative": "colour-named"
+    },
+    {
+      "path": "$.expr.sequence.intermediate_exp",
+      "count": 6,
+      "representative": "fence-round-single"
+    },
+    {
+      "path": "$.expr.frac",
+      "count": 6,
+      "representative": "fence-over-number"
+    },
+    {
+      "path": "$.expr.sequence.fonts_value.intermediate_exp",
+      "count": 6,
+      "representative": "font-bold"
+    },
+    {
+      "path": "$.expr",
+      "count": 28,
+      "representative": "font-mixed"
+    },
+    {
+      "path": "$.expr.power_base",
+      "count": 9,
+      "representative": "frac-explicit"
+    },
+    {
+      "path": "$.left_right.left_right_value.frac",
+      "count": 1,
+      "representative": "left-right-around-frac"
+    },
+    {
+      "path": "$.left_right.table",
+      "count": 2,
+      "representative": "matrix-column"
+    },
+    {
+      "path": "$.expr.mod",
+      "count": 3,
+      "representative": "mod-simple"
+    },
+    {
+      "path": "$.expr.ternary",
+      "count": 2,
+      "representative": "nary-sum-bounded"
+    },
+    {
+      "path": "$.expr.sequence.unary",
+      "count": 12,
+      "representative": "partial-sqrt-unclosed"
+    }
+  ],
+  "cases": [
+    {
+      "id": "colour-named",
+      "input": "color(red)(x)",
+      "first_member_order_difference": {
+        "path": "$.expr.color.intermediate_exp.rgb_color.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "colour-in-sum",
+      "input": "color(blue)(x) + y",
+      "first_member_order_difference": {
+        "path": "$.expr.color.intermediate_exp.rgb_color.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "fence-round-single",
+      "input": "(x)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.intermediate_exp",
+        "old_keys": [
+          "expr",
+          "lparen",
+          "rparen"
+        ],
+        "current_keys": [
+          "lparen",
+          "expr",
+          "rparen"
+        ]
+      }
+    },
+    {
+      "id": "fence-round-expression",
+      "input": "(x+y)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.intermediate_exp",
+        "old_keys": [
+          "expr",
+          "lparen",
+          "rparen"
+        ],
+        "current_keys": [
+          "lparen",
+          "expr",
+          "rparen"
+        ]
+      }
+    },
+    {
+      "id": "fence-square-pair",
+      "input": "[a,b]",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.intermediate_exp",
+        "old_keys": [
+          "expr",
+          "lparen",
+          "rparen"
+        ],
+        "current_keys": [
+          "lparen",
+          "expr",
+          "rparen"
+        ]
+      }
+    },
+    {
+      "id": "fence-curly-single",
+      "input": "{x}",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.intermediate_exp",
+        "old_keys": [
+          "expr",
+          "lparen",
+          "rparen"
+        ],
+        "current_keys": [
+          "lparen",
+          "expr",
+          "rparen"
+        ]
+      }
+    },
+    {
+      "id": "fence-round-triple",
+      "input": "(a,b,c)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.intermediate_exp",
+        "old_keys": [
+          "expr",
+          "lparen",
+          "rparen"
+        ],
+        "current_keys": [
+          "lparen",
+          "expr",
+          "rparen"
+        ]
+      }
+    },
+    {
+      "id": "fence-over-number",
+      "input": "(x+y)/2",
+      "first_member_order_difference": {
+        "path": "$.expr.frac",
+        "old_keys": [
+          "denominator",
+          "numerator"
+        ],
+        "current_keys": [
+          "numerator",
+          "denominator"
+        ]
+      }
+    },
+    {
+      "id": "font-bold",
+      "input": "bb(x)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.fonts_value.intermediate_exp",
+        "old_keys": [
+          "expr",
+          "lparen",
+          "rparen"
+        ],
+        "current_keys": [
+          "lparen",
+          "expr",
+          "rparen"
+        ]
+      }
+    },
+    {
+      "id": "font-blackboard",
+      "input": "bbb(x)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.fonts_value.intermediate_exp",
+        "old_keys": [
+          "expr",
+          "lparen",
+          "rparen"
+        ],
+        "current_keys": [
+          "lparen",
+          "expr",
+          "rparen"
+        ]
+      }
+    },
+    {
+      "id": "font-script",
+      "input": "cc(x)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.fonts_value.intermediate_exp",
+        "old_keys": [
+          "expr",
+          "lparen",
+          "rparen"
+        ],
+        "current_keys": [
+          "lparen",
+          "expr",
+          "rparen"
+        ]
+      }
+    },
+    {
+      "id": "font-typewriter",
+      "input": "tt(x)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.fonts_value.intermediate_exp",
+        "old_keys": [
+          "expr",
+          "lparen",
+          "rparen"
+        ],
+        "current_keys": [
+          "lparen",
+          "expr",
+          "rparen"
+        ]
+      }
+    },
+    {
+      "id": "font-fraktur",
+      "input": "fr(x)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.fonts_value.intermediate_exp",
+        "old_keys": [
+          "expr",
+          "lparen",
+          "rparen"
+        ],
+        "current_keys": [
+          "lparen",
+          "expr",
+          "rparen"
+        ]
+      }
+    },
+    {
+      "id": "font-sans-serif",
+      "input": "sf(x)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.fonts_value.intermediate_exp",
+        "old_keys": [
+          "expr",
+          "lparen",
+          "rparen"
+        ],
+        "current_keys": [
+          "lparen",
+          "expr",
+          "rparen"
+        ]
+      }
+    },
+    {
+      "id": "font-mixed",
+      "input": "bb(A) + cc(B)",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "frac-simple",
+      "input": "a/b",
+      "first_member_order_difference": {
+        "path": "$.expr.frac",
+        "old_keys": [
+          "denominator",
+          "numerator"
+        ],
+        "current_keys": [
+          "numerator",
+          "denominator"
+        ]
+      }
+    },
+    {
+      "id": "frac-numeric",
+      "input": "2/3",
+      "first_member_order_difference": {
+        "path": "$.expr.frac",
+        "old_keys": [
+          "denominator",
+          "numerator"
+        ],
+        "current_keys": [
+          "numerator",
+          "denominator"
+        ]
+      }
+    },
+    {
+      "id": "frac-fenced-numerator",
+      "input": "(a+b)/c",
+      "first_member_order_difference": {
+        "path": "$.expr.frac",
+        "old_keys": [
+          "denominator",
+          "numerator"
+        ],
+        "current_keys": [
+          "numerator",
+          "denominator"
+        ]
+      }
+    },
+    {
+      "id": "frac-fenced-denominator",
+      "input": "x/(y+z)",
+      "first_member_order_difference": {
+        "path": "$.expr.frac",
+        "old_keys": [
+          "denominator",
+          "numerator"
+        ],
+        "current_keys": [
+          "numerator",
+          "denominator"
+        ]
+      }
+    },
+    {
+      "id": "frac-sum-of-fracs",
+      "input": "a/b + c/d",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "frac"
+        ],
+        "current_keys": [
+          "frac",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "frac-explicit",
+      "input": "frac(a)(b)",
+      "first_member_order_difference": {
+        "path": "$.expr.power_base",
+        "old_keys": [
+          "base_value",
+          "binary_class",
+          "power_value"
+        ],
+        "current_keys": [
+          "binary_class",
+          "base_value",
+          "power_value"
+        ]
+      }
+    },
+    {
+      "id": "left-right-around-frac",
+      "input": "left( a/b right)",
+      "first_member_order_difference": {
+        "path": "$.left_right.left_right_value.frac",
+        "old_keys": [
+          "denominator",
+          "numerator"
+        ],
+        "current_keys": [
+          "numerator",
+          "denominator"
+        ]
+      }
+    },
+    {
+      "id": "matrix-column",
+      "input": "((a),(b))",
+      "first_member_order_difference": {
+        "path": "$.left_right.table",
+        "old_keys": [
+          "expr",
+          "table_left",
+          "table_right",
+          "table_row"
+        ],
+        "current_keys": [
+          "table_left",
+          "table_row",
+          "expr",
+          "table_right"
+        ]
+      }
+    },
+    {
+      "id": "matrix-two-by-two",
+      "input": "[[a,b],[c,d]]",
+      "first_member_order_difference": {
+        "path": "$.left_right.table",
+        "old_keys": [
+          "expr",
+          "table_left",
+          "table_right",
+          "table_row"
+        ],
+        "current_keys": [
+          "table_left",
+          "table_row",
+          "expr",
+          "table_right"
+        ]
+      }
+    },
+    {
+      "id": "mixed-implicit-product",
+      "input": "2pi r",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "mixed-greek-sequence",
+      "input": "alpha beta gamma",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "mixed-function-definition",
+      "input": "f(x) = x^2",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "mixed-binomial-square",
+      "input": "(x+y)^2 = x^2 + 2xy + y^2",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "power_base"
+        ],
+        "current_keys": [
+          "power_base",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "mixed-sum-of-cubes",
+      "input": "sum_(i=1)^n i^3=((n(n+1))/2)^2",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "ternary"
+        ],
+        "current_keys": [
+          "ternary",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "mod-simple",
+      "input": "a mod b",
+      "first_member_order_difference": {
+        "path": "$.expr.mod",
+        "old_keys": [
+          "dividend",
+          "divisor",
+          "mod"
+        ],
+        "current_keys": [
+          "dividend",
+          "mod",
+          "divisor"
+        ]
+      }
+    },
+    {
+      "id": "mod-numeric",
+      "input": "x mod 2",
+      "first_member_order_difference": {
+        "path": "$.expr.mod",
+        "old_keys": [
+          "dividend",
+          "divisor",
+          "mod"
+        ],
+        "current_keys": [
+          "dividend",
+          "mod",
+          "divisor"
+        ]
+      }
+    },
+    {
+      "id": "mod-in-expression",
+      "input": "(a + b) mod n",
+      "first_member_order_difference": {
+        "path": "$.expr.mod",
+        "old_keys": [
+          "dividend",
+          "divisor",
+          "mod"
+        ],
+        "current_keys": [
+          "dividend",
+          "mod",
+          "divisor"
+        ]
+      }
+    },
+    {
+      "id": "nary-log-base",
+      "input": "log_2 8",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "power_base"
+        ],
+        "current_keys": [
+          "power_base",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "nary-lim",
+      "input": "lim_(x->oo) f(x)",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "power_base"
+        ],
+        "current_keys": [
+          "power_base",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "nary-sum-bounded",
+      "input": "sum_(i=1)^n i",
+      "first_member_order_difference": {
+        "path": "$.expr.ternary",
+        "old_keys": [
+          "base_value",
+          "power_value",
+          "ternary_class",
+          "third_value"
+        ],
+        "current_keys": [
+          "ternary_class",
+          "base_value",
+          "power_value",
+          "third_value"
+        ]
+      }
+    },
+    {
+      "id": "nary-int-bounded",
+      "input": "int_0^1 x dx",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "ternary"
+        ],
+        "current_keys": [
+          "ternary",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "nary-prod-bounded",
+      "input": "prod_(k=1)^n k",
+      "first_member_order_difference": {
+        "path": "$.expr.ternary",
+        "old_keys": [
+          "base_value",
+          "power_value",
+          "ternary_class",
+          "third_value"
+        ],
+        "current_keys": [
+          "ternary_class",
+          "base_value",
+          "power_value",
+          "third_value"
+        ]
+      }
+    },
+    {
+      "id": "nary-sum-bare",
+      "input": "sum x",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "ternary_class"
+        ],
+        "current_keys": [
+          "ternary_class",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "number-formatter-base-16-negative",
+      "input": "-255",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "number-formatter-base-prefix-space-negative",
+      "input": "-10.75",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "number-formatter-sign-plus-with-minus-operator",
+      "input": "-14236.39239",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "operator-plus",
+      "input": "x + y",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "operator-implicit-product",
+      "input": "2x",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "operator-asterisk",
+      "input": "a*b",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "operator-minus",
+      "input": "a - b",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "operator-equals",
+      "input": "x = y",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "operator-plus-chain",
+      "input": "a + b + c",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "partial-sqrt-unclosed",
+      "input": "sqrt(",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.unary",
+        "old_keys": [
+          "intermediate_exp",
+          "unary_class"
+        ],
+        "current_keys": [
+          "unary_class",
+          "intermediate_exp"
+        ]
+      }
+    },
+    {
+      "id": "permissive-trailing-caret",
+      "input": "x^",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "permissive-unclosed-paren",
+      "input": "(a",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.intermediate_exp",
+        "old_keys": [
+          "expr",
+          "lparen",
+          "rparen"
+        ],
+        "current_keys": [
+          "lparen",
+          "expr",
+          "rparen"
+        ]
+      }
+    },
+    {
+      "id": "permissive-unopened-paren",
+      "input": "a)",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "permissive-frac-then-operator",
+      "input": "a/ + b",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "frac"
+        ],
+        "current_keys": [
+          "frac",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "power-square",
+      "input": "x^2",
+      "first_member_order_difference": {
+        "path": "$.expr.power_base",
+        "old_keys": [
+          "power",
+          "power_base"
+        ],
+        "current_keys": [
+          "power_base",
+          "power"
+        ]
+      }
+    },
+    {
+      "id": "power-fenced-exponent",
+      "input": "x^(n+1)",
+      "first_member_order_difference": {
+        "path": "$.expr.power_base",
+        "old_keys": [
+          "power",
+          "power_base"
+        ],
+        "current_keys": [
+          "power_base",
+          "power"
+        ]
+      }
+    },
+    {
+      "id": "subscript-digit",
+      "input": "a_1",
+      "first_member_order_difference": {
+        "path": "$.expr.power_base",
+        "old_keys": [
+          "base",
+          "power_base"
+        ],
+        "current_keys": [
+          "power_base",
+          "base"
+        ]
+      }
+    },
+    {
+      "id": "subscript-fenced",
+      "input": "a_(n+1)",
+      "first_member_order_difference": {
+        "path": "$.expr.power_base",
+        "old_keys": [
+          "base",
+          "power_base"
+        ],
+        "current_keys": [
+          "power_base",
+          "base"
+        ]
+      }
+    },
+    {
+      "id": "power-and-subscript",
+      "input": "x_1^2",
+      "first_member_order_difference": {
+        "path": "$.expr.power_base",
+        "old_keys": [
+          "base_value",
+          "power_base",
+          "power_value"
+        ],
+        "current_keys": [
+          "power_base",
+          "base_value",
+          "power_value"
+        ]
+      }
+    },
+    {
+      "id": "power-exponential",
+      "input": "e^x",
+      "first_member_order_difference": {
+        "path": "$.expr.power_base",
+        "old_keys": [
+          "power",
+          "power_base"
+        ],
+        "current_keys": [
+          "power_base",
+          "power"
+        ]
+      }
+    },
+    {
+      "id": "power-of-two",
+      "input": "2^10",
+      "first_member_order_difference": {
+        "path": "$.expr.power_base",
+        "old_keys": [
+          "power",
+          "power_base"
+        ],
+        "current_keys": [
+          "power_base",
+          "power"
+        ]
+      }
+    },
+    {
+      "id": "power-over-number",
+      "input": "x^2/4",
+      "first_member_order_difference": {
+        "path": "$.expr.frac",
+        "old_keys": [
+          "denominator",
+          "numerator"
+        ],
+        "current_keys": [
+          "numerator",
+          "denominator"
+        ]
+      }
+    },
+    {
+      "id": "root-sqrt-number",
+      "input": "sqrt(2)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.unary",
+        "old_keys": [
+          "intermediate_exp",
+          "unary_class"
+        ],
+        "current_keys": [
+          "unary_class",
+          "intermediate_exp"
+        ]
+      }
+    },
+    {
+      "id": "root-sqrt-expression",
+      "input": "sqrt(x+1)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.unary",
+        "old_keys": [
+          "intermediate_exp",
+          "unary_class"
+        ],
+        "current_keys": [
+          "unary_class",
+          "intermediate_exp"
+        ]
+      }
+    },
+    {
+      "id": "root-sqrt-pythagoras",
+      "input": "sqrt(a^2 + b^2)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.unary",
+        "old_keys": [
+          "intermediate_exp",
+          "unary_class"
+        ],
+        "current_keys": [
+          "unary_class",
+          "intermediate_exp"
+        ]
+      }
+    },
+    {
+      "id": "root-cube",
+      "input": "root(3)(x+1)",
+      "first_member_order_difference": {
+        "path": "$.expr.power_base",
+        "old_keys": [
+          "base_value",
+          "binary_class",
+          "power_value"
+        ],
+        "current_keys": [
+          "binary_class",
+          "base_value",
+          "power_value"
+        ]
+      }
+    },
+    {
+      "id": "symbol-adjacent-letters",
+      "input": "xyz",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "symbol-spaced-letters",
+      "input": "x y",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "unary-sin-fenced",
+      "input": "sin(x)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.unary",
+        "old_keys": [
+          "intermediate_exp",
+          "unary_class"
+        ],
+        "current_keys": [
+          "unary_class",
+          "intermediate_exp"
+        ]
+      }
+    },
+    {
+      "id": "unary-sin-bare",
+      "input": "sin x",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.unary",
+        "old_keys": [
+          "symbol",
+          "unary_class"
+        ],
+        "current_keys": [
+          "unary_class",
+          "symbol"
+        ]
+      }
+    },
+    {
+      "id": "unary-cos-product",
+      "input": "cos(2x)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.unary",
+        "old_keys": [
+          "intermediate_exp",
+          "unary_class"
+        ],
+        "current_keys": [
+          "unary_class",
+          "intermediate_exp"
+        ]
+      }
+    },
+    {
+      "id": "unary-abs",
+      "input": "abs(x)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.unary",
+        "old_keys": [
+          "intermediate_exp",
+          "unary_class"
+        ],
+        "current_keys": [
+          "unary_class",
+          "intermediate_exp"
+        ]
+      }
+    },
+    {
+      "id": "unary-hat",
+      "input": "hat(x)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.unary",
+        "old_keys": [
+          "intermediate_exp",
+          "unary_class"
+        ],
+        "current_keys": [
+          "unary_class",
+          "intermediate_exp"
+        ]
+      }
+    },
+    {
+      "id": "unary-bar",
+      "input": "bar(x)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.unary",
+        "old_keys": [
+          "intermediate_exp",
+          "unary_class"
+        ],
+        "current_keys": [
+          "unary_class",
+          "intermediate_exp"
+        ]
+      }
+    },
+    {
+      "id": "unary-vec",
+      "input": "vec(v)",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.unary",
+        "old_keys": [
+          "intermediate_exp",
+          "unary_class"
+        ],
+        "current_keys": [
+          "unary_class",
+          "intermediate_exp"
+        ]
+      }
+    },
+    {
+      "id": "whitespace-around-operator",
+      "input": "x  +  y",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "whitespace-between-letters",
+      "input": "a   b",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "sequence"
+        ],
+        "current_keys": [
+          "sequence",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "whitespace-in-subscript",
+      "input": "sum_(i = 1)^n  i",
+      "first_member_order_difference": {
+        "path": "$.expr",
+        "old_keys": [
+          "expr",
+          "ternary"
+        ],
+        "current_keys": [
+          "ternary",
+          "expr"
+        ]
+      }
+    },
+    {
+      "id": "whitespace-inside-fence",
+      "input": "sqrt( x )",
+      "first_member_order_difference": {
+        "path": "$.expr.sequence.unary",
+        "old_keys": [
+          "intermediate_exp",
+          "unary_class"
+        ],
+        "current_keys": [
+          "unary_class",
+          "intermediate_exp"
+        ]
+      }
+    }
+  ]
+}
