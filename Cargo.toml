@@ -1,5 +1,5 @@
 [package]
-name = "amath"
+name = "plurimath-amath"
 version = "0.1.0"
 edition = "2021"
 rust-version = "1.86"
@@ -31,4 +31,5 @@ features = ["runtime"]
 optional = true
 
 [lib]
+name = "amath"
 crate-type = ["rlib", "cdylib"]
