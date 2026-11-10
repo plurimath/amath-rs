@@ -1,0 +1,5 @@
+# Sources and generated manifests use their canonical LF representation.
+* text=auto eol=lf
+
+# PARG envelopes are sealed over serialized bytes; Git must not transform them.
+artifacts/*.json -text
