@@ -1,0 +1,39 @@
+[package]
+name = "plurimath-amath"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.86"
+description = "Shared-PARG asciimath raw parser for Rust"
+license = "BSD-2-Clause"
+readme = "README.md"
+include = ["src/**", "include/**", "tests/**", "examples/**", "artifacts/**", "README.md", "LICENSE", "UPSTREAM.json", "Cargo.toml"]
+
+[dependencies]
+parsanol = { git = "https://github.com/parsanol/parsanol-rs", rev = "20d5e6cebcade3cf2111a00a7ef3f5b69d673481" }
+serde_json = { version = "=1.0.140", features = ["arbitrary_precision", "preserve_order"] }
+
+[features]
+default = []
+models = ["dep:serde", "dep:lutaml_rs", "dep:sha2"]
+ffi = ["models"]
+
+[dependencies.serde]
+version = "=1.0.219"
+features = ["derive"]
+optional = true
+
+[dependencies.sha2]
+version = "=0.11.0"
+optional = true
+
+[dependencies.lutaml_rs]
+package = "lutaml-rs"
+git = "https://github.com/lutaml/lutaml-rs"
+rev = "945e6ada11f52f77b959a5df1f05fdbd23092939"
+default-features = false
+features = ["runtime"]
+optional = true
+
+[lib]
+name = "amath"
+crate-type = ["rlib", "cdylib"]

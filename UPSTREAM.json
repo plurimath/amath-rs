@@ -1,0 +1,59 @@
+{
+  "stage": {
+    "commit": "fbc20c95bdd04ef7952dc07ccf6d197b8f16bc84",
+    "artifacts": {
+      "artifacts/asciimath.json": "f7e812476e125729e4f69c00d08083d69e83b4666d3c33b911e3ab88d30988da",
+      "artifacts/asciimath.bindings.rs.json": "ab8a3fbb9e62098a44e9919730eb28bf6f7951f273f9e13c7f7f2530ef5bc07d",
+      "grammars/asciimath.wrappers.json": "ef2919bef0d3581eb5bfe93dfc268cf85961fb69794b6730f792b14c0a0b6618"
+    }
+  },
+  "transforms": {
+    "repository": "plurimath/plurimath-testsuite",
+    "commit": "0d50db714d75e3883a507fbc47022eb547fb027f",
+    "files": {
+      "languages.rs": "1f0b0f6a987cc2112d9074fa9a2516f9f18c21ba68885c68c0f2c3b83112af40",
+      "replay.rs": "158978bc23644a5c6028d667ac47bdcd693a6899151504fa2f01ce81c3026287"
+    }
+  },
+  "runtime": {
+    "crate": "parsanol",
+    "version": "0.20.7",
+    "cache_source_commit": "18c8a083dc58ce5f875b5649d5af98b94d84a0a2"
+  },
+  "stage_transforms": {
+    "source": "stage Ruby raw_tree.rb / parser/unwrap.rb",
+    "policy": "shared Rust unwrap reused with current wrapper table before stage renesting"
+  },
+  "model_producer": {
+    "repository": "https://github.com/plurimath/amath",
+    "commit": "cb214633c0dc415a4e1bf0a96c06db36600cbf9d",
+    "exporter": "scripts/export_portable_models.rb",
+    "exporterSha256": "adba8b8aa4ec6a027c44a42a84c0c781e58cfb9e042bfee154ee7f6ba8978c14",
+    "frameworkRepository": "https://github.com/lutaml/lutaml-model",
+    "frameworkCommit": "fd2989fd8478b1ecb2508d98fa2d66792c09c72b",
+    "bundleSha256": "ba5d1c17c71fedc220f54cac07836f3a8c6667eb9c6dce8b2b7fc32947dbfe7b",
+    "comparisonProfile": "portable-exact-json-v1",
+    "resolvedRubySymbolsProbe": "pinned original/new symbol read/write outputs equal"
+  },
+  "model_generator": {
+    "repository": "lutaml/lutaml-rs",
+    "commit": "945e6ada11f52f77b959a5df1f05fdbd23092939",
+    "manifest_sha256": "835045716c66c3658f5b12534d42df2eae26b20f57604545b557aafb22e3c7d1"
+  },
+  "catalog": {
+    "source": "plurimath/amath data/asciimath-symbols.json and generated TS catalog",
+    "sha256": "b20361256d9ebdc32487709fe9c0184f9c7617e86540ba6914c4df6ad528db2a"
+  },
+  "compatibility_runtime": {
+    "repository": "https://github.com/parsanol/parsanol-rs",
+    "commit": "20d5e6cebcade3cf2111a00a7ef3f5b69d673481",
+    "version": "0.20.12",
+    "release_status": "unreleased source candidate",
+    "strict_api": "parse/parse_with_decimal and model JSON unchanged",
+    "legacy_api": "parse_legacy/parse_legacy_with_decimal",
+    "policy": "strict acceptance/tree; causal reparse only on rejection with native fallback",
+    "native_stack_bytes": 67108864,
+    "rule_reference_budget": 1000,
+    "native_vm_call_budget": 0
+  }
+}
