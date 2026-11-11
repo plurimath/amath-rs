@@ -39,7 +39,12 @@ fn legacy_offsets_are_grammar_bytes_not_plurimath_preprocessed_characters() {
         ("{:a/", 3, "\u{2112}a/", 2),
         ("{:x:}a/", 6, "\u{2112}x\u{211B}a/", 4),
         ("(:x:)y/", 6, "\u{1455}x\u{1450}y/", 4),
-        ("{:a:}(:b:)c/", 11, "\u{2112}a\u{211B}\u{1455}b\u{1450}c/", 7),
+        (
+            "{:a:}(:b:)c/",
+            11,
+            "\u{2112}a\u{211B}\u{1455}b\u{1450}c/",
+            7,
+        ),
     ] {
         let error = parser.parse_legacy(text).unwrap_err();
         assert_eq!(error.byte_offset(), Some(byte), "{text}");
