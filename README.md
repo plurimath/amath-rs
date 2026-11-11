@@ -55,3 +55,13 @@ The original fixture and13 source-declared exclusions are retained verbatim.
 See `tests/fixtures/raw-profiles-provenance-v1.json` for payload, generator,
 artifact and producer pins. These raw profiles do not establish public model
 or writer equivalence; those remain separate consumer requirements.
+
+## Entrypoints and dialects
+
+- Raw trees: `Parser::parse`, `parse_with_decimal` (native strict) and `parse_legacy`,
+  `parse_legacy_with_decimal` (the stage producer's legacy policy). These match Ruby
+  `Amath.parse` / `Amath::Parser.raw`.
+- Typed model: `Parser::parse_model(input, decimal)` with `typed::to_portable_json`. This
+  matches Ruby `Amath.parse_model(input, dialect: :legacy)`.
+- Dialect availability: only dialect L (`:legacy`) is implemented. The pma dialect
+  (`dialect: :pma` in Ruby amath) is not available in this crate yet; see the port plan.
