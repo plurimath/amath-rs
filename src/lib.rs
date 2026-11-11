@@ -43,6 +43,13 @@ impl fmt::Display for Error {
 impl std::error::Error for Error {}
 impl Error {
     /// UTF-8 byte offset in the preprocessed grammar input; never caller-coordinate remapping.
+    ///
+    /// AsciiMath has no stage preprocessing (`languages::stage_language("asciimath").preprocess`
+    /// is `None`), so for this crate the grammar input is the caller input and this is also the
+    /// caller-input UTF-8 byte offset. It is NOT the legacy Plurimath testsuite `error.index`,
+    /// which counts characters in Plurimath's own preprocessed text (that facade rewrites
+    /// `{:` `:}` `(:` `:)` to U+2112 U+211B U+1455 U+1450, so e.g. `{:a/` fails at byte 3 here
+    /// and at character 2 there; both locate the same `/`).
     pub fn byte_offset(&self) -> Option<usize> {
         match self {
             Self::Runtime(PargError::ParseWire { offset, .. }) => Some(*offset),

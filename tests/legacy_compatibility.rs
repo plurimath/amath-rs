@@ -29,6 +29,30 @@ fn frozen_raw_smoke_legacy_trees_and_offsets() {
 }
 
 #[test]
+fn legacy_offsets_are_grammar_bytes_not_plurimath_preprocessed_characters() {
+    // Frozen testsuite 0d50db7 rejections.yaml records `error.index` 2,4,4,7: characters in
+    // Plurimath's preprocessed text (`{:`->U+2112 etc.). This crate does no AsciiMath
+    // preprocessing, so the same failing `/` is reported as a UTF-8 byte offset in the
+    // unchanged input. The old corpus offsets are not rewritten.
+    let parser = Parser::new().unwrap();
+    for (text, byte, plurimath_preprocessed, plurimath_index) in [
+        ("{:a/", 3, "\u{2112}a/", 2),
+        ("{:x:}a/", 6, "\u{2112}x\u{211B}a/", 4),
+        ("(:x:)y/", 6, "\u{1455}x\u{1450}y/", 4),
+        ("{:a:}(:b:)c/", 11, "\u{2112}a\u{211B}\u{1455}b\u{1450}c/", 7),
+    ] {
+        let error = parser.parse_legacy(text).unwrap_err();
+        assert_eq!(error.byte_offset(), Some(byte), "{text}");
+        assert_eq!(&text[byte..byte + 1], "/", "{text}");
+        assert_eq!(
+            plurimath_preprocessed.chars().nth(plurimath_index),
+            Some('/'),
+            "{text}"
+        );
+    }
+}
+
+#[test]
 fn legacy_errors_reparse_causal_tree_without_changing_native_api() {
     let parser = Parser::new().unwrap();
     for (text, native, legacy) in [("a/", 2, 1), ("α a/", 5, 4)] {
