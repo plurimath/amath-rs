@@ -63,5 +63,16 @@ or writer equivalence; those remain separate consumer requirements.
   `Amath.parse` / `Amath::Parser.raw`.
 - Typed model: `Parser::parse_model(input, decimal)` with `typed::to_portable_json`. This
   matches Ruby `Amath.parse_model(input, dialect: :legacy)`.
-- Dialect availability: only dialect L (`:legacy`) is implemented. The pma dialect
-  (`dialect: :pma` in Ruby amath) is not available in this crate yet; see the port plan.
+- Dialect P (pma): `Parser::parse_pma_model(input, ".")` or `pma::parse_model`, with
+  `pma::to_portable_json`. This matches Ruby `Amath.parse_model(input, dialect: :pma)`. It
+  is only ever selected explicitly and never falls back to dialect L. It parses with its
+  own producer artifact (`artifacts/pma.json`); the text of `unit(...)` is checked by the
+  asciiunits artifact recorded in `artifacts/pma.checksums.txt`, and quantity names come
+  from the sealed `artifacts/pma.quantities.json`. pma has no decimal option: anything
+  other than "." is refused. A refusal is a `pma::PmaRefusal` with one of 14 categories,
+  a caller-input UTF-8 byte offset and the matching character offset.
+- Dialect availability: dialect L (`:legacy`) and dialect P (`:pma`). The C ABI adds
+  `amath_parse_model_dialect_json_v1(input, decimal, dialect)` with `dialect` "legacy" or
+  "pma"; `amath_parse_model_json_v1` is unchanged and stays dialect L.
+- `tests/pma.rs` checks all 38 accepted and 60 refused rows of amath `corpora/pma`
+  against the Ruby reference output in `tests/fixtures/pma-reference.json`.

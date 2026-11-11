@@ -5,6 +5,8 @@ mod languages;
 #[cfg(feature="models")]
 #[rustfmt::skip]
 pub mod generated;
+#[cfg(feature = "models")]
+pub mod pma;
 mod replay;
 #[cfg(feature = "models")]
 pub mod typed;

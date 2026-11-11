@@ -67,6 +67,15 @@ fn strings(value: &Value, source: &str, catalog: &HashMap<String, Value>) -> Val
     }
 }
 impl Parser {
+    /// The dialect P (`pma`) typed model; explicit, never selected implicitly.
+    /// `decimal` must be "." (pma has no decimal option in version 1).
+    pub fn parse_pma_model(
+        &self,
+        input: &str,
+        decimal: &str,
+    ) -> Result<crate::generated::models::Amath_Model_PmaDocument, crate::pma::PmaError> {
+        crate::pma::parse_model(input, decimal)
+    }
     pub fn parse_model(
         &self,
         input: &str,
