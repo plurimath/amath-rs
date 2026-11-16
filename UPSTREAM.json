@@ -46,7 +46,7 @@
   },
   "compatibility_runtime": {
     "repository": "https://github.com/parsanol/parsanol-rs",
-    "commit": "5206a33b5417b4ecd3a601930461ed2967c871e7",
+    "commit": "8f8afd878a3e91b83e43c2005459bc9dc4927851",
     "version": "0.20.14",
     "release_status": "unreleased source candidate",
     "strict_api": "parse/parse_with_decimal and model JSON unchanged",
