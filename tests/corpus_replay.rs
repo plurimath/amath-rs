@@ -105,9 +105,26 @@ fn replay() {
     let text = std::fs::read_to_string(path).unwrap();
     let corpus: Value = serde_json::from_str(&text).unwrap();
     let parser = Parser::new().unwrap();
+    let rows = corpus["cases"].as_array().unwrap();
+    // Append-only supersession, as amath's testsuite_parity_spec: a row whose
+    // id has an -r2 sibling (first "-r2" removed) is kept for history and only
+    // the sibling runs. Generation 5 re-homes the bareword uncertainty calls
+    // to the quoted channel (amath#17) this way.
+    let superseded: std::collections::BTreeSet<String> = rows
+        .iter()
+        .filter_map(|row| row["id"].as_str())
+        .filter(|id| id.contains("-r2"))
+        .map(|id| id.replacen("-r2", "", 1))
+        .collect();
     let mut outcomes = Vec::new();
     let mut failures = 0usize;
-    for row in corpus["cases"].as_array().unwrap() {
+    let mut skipped = Vec::new();
+    for row in rows {
+        let id = row["id"].as_str().unwrap();
+        if superseded.contains(id) {
+            skipped.push(id.to_owned());
+            continue;
+        }
         let started = std::time::Instant::now();
         let failure = match row["boundary"].as_str().unwrap() {
             "raw-tree" => raw_failure(&parser, row),
@@ -122,11 +139,17 @@ fn replay() {
         let failure = failure.map(|f| f.chars().take(800).collect::<String>());
         outcomes.push(json!({"id": row["id"], "boundary": row["boundary"], "failure": failure, "millis": millis}));
     }
+    assert_eq!(
+        skipped.len(),
+        superseded.len(),
+        "every -r2 row must supersede an existing original"
+    );
     let report = json!({
         "generation": corpus["generation"],
         "revision": corpus["revision"],
         "executed": outcomes.len(),
         "failed": failures,
+        "superseded": skipped,
         "outcomes": outcomes,
     });
     if let Ok(out) = std::env::var("AMATH_CORPUS_REPORT") {

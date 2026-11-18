@@ -1,9 +1,9 @@
 {
   "stage": {
-    "commit": "fbc20c95bdd04ef7952dc07ccf6d197b8f16bc84",
+    "commit": "68cc0a4c43ee77b6df758b5737b9f1c7c840ad74",
     "artifacts": {
-      "artifacts/asciimath.json": "f7e812476e125729e4f69c00d08083d69e83b4666d3c33b911e3ab88d30988da",
-      "artifacts/asciimath.bindings.rs.json": "ab8a3fbb9e62098a44e9919730eb28bf6f7951f273f9e13c7f7f2530ef5bc07d",
+      "artifacts/asciimath.json": "dcb76184896f81760293483f7d2e7096ac9a6d7243de67c6f33aeb8efdee296e",
+      "artifacts/asciimath.bindings.rs.json": "2933709dae4afc1c5ef5c78121b72a69e49cfc663b838684a7242d8ffa933862",
       "grammars/asciimath.wrappers.json": "ef2919bef0d3581eb5bfe93dfc268cf85961fb69794b6730f792b14c0a0b6618"
     }
   },
