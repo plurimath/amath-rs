@@ -14,7 +14,13 @@ assert current['excluded']==archived['excluded'] and len(current['excluded'])==1
 assert current['producer']['engines']==['native','ruby']
 assert current['producer']['engine_agreement'] is True
 assert current['producer']['commit']=='a4ed231057aeb98022f5c825807e888946a9e71c'
-assert current['producer']['source_files']['artifacts/asciimath.json']==digest(root/'artifacts/asciimath.json')
+# The a4ed231 profile is a sealed historical Ruby output: it records the artifact
+# it was produced with. The shipped artifact is the one UPSTREAM.json pins, and
+# full_current_producer_member_order replays all 160 rows against it.
+assert current['producer']['source_files']['artifacts/asciimath.json']=='f7e812476e125729e4f69c00d08083d69e83b4666d3c33b911e3ab88d30988da'
+upstream=json.loads((root/'UPSTREAM.json').read_text())['stage']['artifacts']
+for name in ['artifacts/asciimath.json','artifacts/asciimath.bindings.rs.json']:
+    assert upstream[name]==digest(root/name),name+' differs from UPSTREAM.json'
 order_only=0
 for old,row in zip(archived['cases'],current['cases']):
     assert (old['id'],old['input'],old.get('decimal','.'))==(row['id'],row['input'],row['decimal'])

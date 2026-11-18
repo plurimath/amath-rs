@@ -1,16 +1,16 @@
 [
   {
     "payload": "uncertainty-shared-exponent.yaml",
-    "id": "uncertainty-shared-exponent.standard.positive",
+    "id": "uncertainty-shared-exponent.standard.positive-r2",
     "input": {
-      "str": "ustd((3.85, 0.23)e4)"
+      "str": "\"ustd((3.85, 0.23)e4)\""
     },
     "options": {
       "decimal": "."
     },
     "expected": {
       "preprocessed": {
-        "str": "ustd((3.85, 0.23)e4)"
+        "str": "\"ustd((3.85, 0.23)e4)\""
       },
       "tree": {
         "hash": [
@@ -38,8 +38,8 @@
                               },
                               {
                                 "slice": "ustd",
-                                "byte_offset": 0,
-                                "char_offset": 0
+                                "byte_offset": 1,
+                                "char_offset": 1
                               }
                             ],
                             [
@@ -48,8 +48,8 @@
                               },
                               {
                                 "slice": "3.85",
-                                "byte_offset": 6,
-                                "char_offset": 6
+                                "byte_offset": 7,
+                                "char_offset": 7
                               }
                             ],
                             [
@@ -58,8 +58,8 @@
                               },
                               {
                                 "slice": "0.23",
-                                "byte_offset": 12,
-                                "char_offset": 12
+                                "byte_offset": 13,
+                                "char_offset": 13
                               }
                             ],
                             [
@@ -68,8 +68,8 @@
                               },
                               {
                                 "slice": "4",
-                                "byte_offset": 18,
-                                "char_offset": 18
+                                "byte_offset": 19,
+                                "char_offset": 19
                               }
                             ]
                           ]
@@ -87,16 +87,16 @@
   },
   {
     "payload": "uncertainty-shared-exponent.yaml",
-    "id": "uncertainty-shared-exponent.standard.zero_exponent",
+    "id": "uncertainty-shared-exponent.standard.zero_exponent-r2",
     "input": {
-      "str": "ustd((1.230, 0.004)e0)"
+      "str": "\"ustd((1.230, 0.004)e0)\""
     },
     "options": {
       "decimal": "."
     },
     "expected": {
       "preprocessed": {
-        "str": "ustd((1.230, 0.004)e0)"
+        "str": "\"ustd((1.230, 0.004)e0)\""
       },
       "tree": {
         "hash": [
@@ -124,8 +124,8 @@
                               },
                               {
                                 "slice": "ustd",
-                                "byte_offset": 0,
-                                "char_offset": 0
+                                "byte_offset": 1,
+                                "char_offset": 1
                               }
                             ],
                             [
@@ -134,8 +134,8 @@
                               },
                               {
                                 "slice": "1.230",
-                                "byte_offset": 6,
-                                "char_offset": 6
+                                "byte_offset": 7,
+                                "char_offset": 7
                               }
                             ],
                             [
@@ -144,8 +144,8 @@
                               },
                               {
                                 "slice": "0.004",
-                                "byte_offset": 13,
-                                "char_offset": 13
+                                "byte_offset": 14,
+                                "char_offset": 14
                               }
                             ],
                             [
@@ -154,8 +154,8 @@
                               },
                               {
                                 "slice": "0",
-                                "byte_offset": 20,
-                                "char_offset": 20
+                                "byte_offset": 21,
+                                "char_offset": 21
                               }
                             ]
                           ]
@@ -173,16 +173,16 @@
   },
   {
     "payload": "uncertainty-shared-exponent.yaml",
-    "id": "uncertainty-shared-exponent.concise.unit",
+    "id": "uncertainty-shared-exponent.concise.unit-r2",
     "input": {
-      "str": "ustd(680(41)e-3, \"unitsml(kg)\")"
+      "str": "\"ustd(680(41)e-3, \"unitsml(kg)\")\""
     },
     "options": {
       "decimal": "."
     },
     "expected": {
       "preprocessed": {
-        "str": "ustd(680(41)e-3, \"unitsml(kg)\")"
+        "str": "\"ustd(680(41)e-3, \"unitsml(kg)\")\""
       },
       "tree": {
         "hash": [
@@ -210,8 +210,8 @@
                               },
                               {
                                 "slice": "ustd",
-                                "byte_offset": 0,
-                                "char_offset": 0
+                                "byte_offset": 1,
+                                "char_offset": 1
                               }
                             ],
                             [
@@ -220,8 +220,8 @@
                               },
                               {
                                 "slice": "680",
-                                "byte_offset": 5,
-                                "char_offset": 5
+                                "byte_offset": 6,
+                                "char_offset": 6
                               }
                             ],
                             [
@@ -230,8 +230,8 @@
                               },
                               {
                                 "slice": "41",
-                                "byte_offset": 9,
-                                "char_offset": 9
+                                "byte_offset": 10,
+                                "char_offset": 10
                               }
                             ],
                             [
@@ -240,8 +240,8 @@
                               },
                               {
                                 "slice": "-3",
-                                "byte_offset": 13,
-                                "char_offset": 13
+                                "byte_offset": 14,
+                                "char_offset": 14
                               }
                             ],
                             [
@@ -250,8 +250,8 @@
                               },
                               {
                                 "slice": "kg",
-                                "byte_offset": 26,
-                                "char_offset": 26
+                                "byte_offset": 27,
+                                "char_offset": 27
                               }
                             ]
                           ]
@@ -269,16 +269,16 @@
   },
   {
     "payload": "uncertainty-shared-exponent.yaml",
-    "id": "uncertainty-shared-exponent.interval.shared_exponent",
+    "id": "uncertainty-shared-exponent.interval.shared_exponent-r2",
     "input": {
-      "str": "ucov((1.024, 0.983, 1.088)e-3, 0.95, shortest, \"unitsml(V)\")"
+      "str": "\"ucov((1.024, 0.983, 1.088)e-3, 0.95, shortest, \"unitsml(V)\")\""
     },
     "options": {
       "decimal": "."
     },
     "expected": {
       "preprocessed": {
-        "str": "ucov((1.024, 0.983, 1.088)e-3, 0.95, shortest, \"unitsml(V)\")"
+        "str": "\"ucov((1.024, 0.983, 1.088)e-3, 0.95, shortest, \"unitsml(V)\")\""
       },
       "tree": {
         "hash": [
@@ -306,8 +306,8 @@
                               },
                               {
                                 "slice": "ucov",
-                                "byte_offset": 0,
-                                "char_offset": 0
+                                "byte_offset": 1,
+                                "char_offset": 1
                               }
                             ],
                             [
@@ -316,8 +316,8 @@
                               },
                               {
                                 "slice": "1.024",
-                                "byte_offset": 6,
-                                "char_offset": 6
+                                "byte_offset": 7,
+                                "char_offset": 7
                               }
                             ],
                             [
@@ -326,8 +326,8 @@
                               },
                               {
                                 "slice": "0.983",
-                                "byte_offset": 13,
-                                "char_offset": 13
+                                "byte_offset": 14,
+                                "char_offset": 14
                               }
                             ],
                             [
@@ -336,8 +336,8 @@
                               },
                               {
                                 "slice": "1.088",
-                                "byte_offset": 20,
-                                "char_offset": 20
+                                "byte_offset": 21,
+                                "char_offset": 21
                               }
                             ],
                             [
@@ -346,8 +346,8 @@
                               },
                               {
                                 "slice": "-3",
-                                "byte_offset": 27,
-                                "char_offset": 27
+                                "byte_offset": 28,
+                                "char_offset": 28
                               }
                             ],
                             [
@@ -356,8 +356,8 @@
                               },
                               {
                                 "slice": "0.95",
-                                "byte_offset": 31,
-                                "char_offset": 31
+                                "byte_offset": 32,
+                                "char_offset": 32
                               }
                             ],
                             [
@@ -366,8 +366,8 @@
                               },
                               {
                                 "slice": "shortest",
-                                "byte_offset": 37,
-                                "char_offset": 37
+                                "byte_offset": 38,
+                                "char_offset": 38
                               }
                             ],
                             [
@@ -376,8 +376,8 @@
                               },
                               {
                                 "slice": "V",
-                                "byte_offset": 56,
-                                "char_offset": 56
+                                "byte_offset": 57,
+                                "char_offset": 57
                               }
                             ]
                           ]
