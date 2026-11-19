@@ -9,10 +9,7 @@ readme = "README.md"
 include = ["src/**", "include/**", "tests/**", "examples/**", "artifacts/**", "README.md", "LICENSE", "UPSTREAM.json", "Cargo.toml"]
 
 [dependencies]
-# Git-only on purpose: rev 8f8afd8 is parsanol 0.20.14 plus three fixes that
-# no 0.20.x crate has (they reached crates.io in 1.5.4). Publishing needs a
-# move to a parsanol crates release first.
-parsanol = { git = "https://github.com/parsanol/parsanol-rs", rev = "8f8afd878a3e91b83e43c2005459bc9dc4927851" }
+parsanol = "1.5.9"
 serde_json = { version = "=1.0.140", features = ["arbitrary_precision", "preserve_order"] }
 
 [features]

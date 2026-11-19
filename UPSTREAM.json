@@ -46,9 +46,9 @@
   },
   "compatibility_runtime": {
     "repository": "https://github.com/parsanol/parsanol-rs",
-    "commit": "8f8afd878a3e91b83e43c2005459bc9dc4927851",
-    "version": "0.20.14",
-    "release_status": "unreleased source candidate",
+    "commit": "8c6a21aa2622b0951f254e41da04853816258893",
+    "version": "1.5.9",
+    "release_status": "crates.io release (tag parsanol-v1.5.9)",
     "strict_api": "parse/parse_with_decimal and model JSON unchanged",
     "legacy_api": "parse_legacy/parse_legacy_with_decimal",
     "policy": "strict acceptance/tree; causal reparse only on rejection with native fallback",
