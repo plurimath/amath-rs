@@ -2,6 +2,8 @@
 #[cfg(feature = "ffi")]
 pub mod ffi;
 mod languages;
+#[cfg(feature = "wasm")]
+pub mod wasm;
 #[cfg(feature="models")]
 #[rustfmt::skip]
 pub mod generated;
