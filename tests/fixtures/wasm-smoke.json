@@ -1,0 +1,22 @@
+[
+  {
+    "input": "alpha+1",
+    "decimal": "."
+  },
+  {
+    "input": "sqrt(x)",
+    "decimal": "."
+  },
+  {
+    "input": "a/b",
+    "decimal": "."
+  },
+  {
+    "input": "1,5",
+    "decimal": ","
+  },
+  {
+    "input": "",
+    "decimal": "."
+  }
+]

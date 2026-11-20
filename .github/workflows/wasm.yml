@@ -1,7 +1,7 @@
 name: WASM
 
-# Compile check for the wasm32-unknown-unknown target, the TS-WASM leg
-# of the stack. Build only; nothing is published from this workflow.
+# Compile, package and execute the optional WASM transport.
+# Node/browser packages are CI artifacts only; nothing is published.
 on:
   push:
     branches: [main]
@@ -35,3 +35,27 @@ jobs:
         run: cargo +stable build --locked --release --target wasm32-unknown-unknown --lib
       - name: Build the library for wasm32 (--lib --all-features)
         run: cargo +stable build --locked --release --target wasm32-unknown-unknown --lib --all-features
+      - name: Install Node for the WASM runtime smoke
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned wasm-pack
+        run: cargo +stable install wasm-pack --version 0.13.1 --locked
+      - name: Build Node and browser packages
+        run: |
+          wasm-pack build --release --target nodejs --out-dir wasm-node --no-opt -- --locked --features wasm
+          wasm-pack build --release --target web --out-dir wasm-web --no-opt -- --locked --features wasm
+          cp LICENSE wasm-node/LICENSE
+          cp LICENSE wasm-web/LICENSE
+      - name: Write focused native byte references
+        run: cargo +stable run --locked --release --features models --example wasm_reference > target/wasm-reference.json
+      - name: Check frozen corpus samples and native byte parity in Node
+        run: node tests/wasm/node.mjs
+      - name: Upload Node and browser packages
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: stage-wasm-node-web
+          path: |
+            wasm-node
+            wasm-web
+          if-no-files-found: error
