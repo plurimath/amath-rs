@@ -37,7 +37,7 @@
   },
   "model_generator": {
     "repository": "lutaml/lutaml-rs",
-    "commit": "945e6ada11f52f77b959a5df1f05fdbd23092939",
+    "commit": "1f826b7dd0ba1545479df8a4ba715d67e2985b32",
     "manifest_sha256": "835045716c66c3658f5b12534d42df2eae26b20f57604545b557aafb22e3c7d1"
   },
   "catalog": {
