@@ -31,7 +31,7 @@ optional = true
 package = "lutaml-rs"
 version = "=0.1.0"
 git = "https://github.com/lutaml/lutaml-rs"
-rev = "945e6ada11f52f77b959a5df1f05fdbd23092939"
+rev = "1f826b7dd0ba1545479df8a4ba715d67e2985b32"
 default-features = false
 features = ["runtime"]
 optional = true

@@ -186,7 +186,7 @@ checksum = "65cd87c9a6d60536580b316ad985726104730a5151c99845f2490428ef91240a"
 [[package]]
 name = "lutaml-rs"
 version = "0.1.0"
-source = "git+https://github.com/lutaml/lutaml-rs?rev=945e6ada11f52f77b959a5df1f05fdbd23092939#945e6ada11f52f77b959a5df1f05fdbd23092939"
+source = "git+https://github.com/lutaml/lutaml-rs?rev=1f826b7dd0ba1545479df8a4ba715d67e2985b32#1f826b7dd0ba1545479df8a4ba715d67e2985b32"
 dependencies = [
  "num-bigint",
  "num-rational",
